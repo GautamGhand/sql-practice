@@ -1,0 +1,72 @@
+create database joins_practice;
+use joins_practice;
+
+create table employee(id int(10),firstname varchar(250),lastname varchar(250),address varchar(250),salary int(40));
+
+insert into employee values(1,'gautam','g','mohali',20000);
+insert into employee values(2,'gurpreet','singh','mohali',90000);
+insert into employee values(3,'amrit','sagar','chandigarh',70000);
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.MySQL concatenate
+Answer-select concat(firstname,' ',lastname) as fullname from employee;
+
+2.MySQL Get Current Date, User, Version
+Answer-select curdate(),user(),version();
+
+3.MySQL Get Maximum Value
+Answer- select max(salary) from employee;
+or
+select *from employee order by salary desc limit 0,1;
+
+4.MySQL Administrator
+Answer-NOT RESOLVED
+
+5.MySQL where clause
+Answer-select *from employee where salary>20000;
+
+6.MySQL order by
+Answer- select *from employee order by salary;
+or
+select *from employee order by salary desc;
+
+7.MySQL get difference between two dates
+Answer- select datediff(now(),'2022-09-03');
+
+8.MySQL Pattern Matching
+Answer-select *from employee where firstname like 'g%';
+
+9.MySQL Regular Expression
+Answer-select *from employee where firstname regexp '[ga]';
+or
+select *from employee where lastname regexp 'singh|sagar';
+or
+select *from employee where firstname regexp '[a]';
+or
+select *from employee where firstname regexp 'm$';
+or
+ select *from employee where firstname regexp '^ga';
+
+10.MySQL delete duplicate row
+Answer-delete e1 from employee as e1 inner join employee as e2 where e1.id<e2.id and e1.firstname=e2.firstname;
+
+11.MySQL update multiple rows
+Answer-NOT RESOLVED
+
+12.Get nth highest salary using MySQL
+Answer-select *from employee order by salary desc limit 0,1;
+or
+select *,max(salary) from employee;
+
+13.Display the nth row from MySQL
+Answer-select *from employee limit n-1,1;
+
+14.Commit and rollback in mysql
+Answer-set autocommit=0;
+insert into employee(5,'saavi','sharma','chandigarh',12000);
+rollback;
+THIS QUERY WILL NOT TAKE PLACE IN DATABASE WITHOUT COMMIT
+TO MAKE THE CHANGES PERMANENT IN THE DATABASE WE WILL USE COMMIT AFTER THIS QUERY.
+commit;
+		
+15.MySQL SELECT top 5
+Answer-select *from employee limit 5;
